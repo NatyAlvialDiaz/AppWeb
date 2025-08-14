@@ -5,13 +5,13 @@ import cl.natalia.gastos_iaa.servicio.GastoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/gastos")
+@CrossOrigin(value="http://localhost:4200")
 public class GastoController {
 
     @Autowired
@@ -21,6 +21,11 @@ public class GastoController {
         Gasto gastoGuardado = gastoServicio.create(gasto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(gastoGuardado);
+    }
+    @GetMapping("/todosgastos")
+    public ResponseEntity<List<Gasto>> obtenerTodosGastos(){
+        List<Gasto> listaGasto = gastoServicio.findAll();
+        return ResponseEntity.ok(listaGasto);
     }
 }
 
