@@ -5,6 +5,8 @@ import cl.natalia.gastos_iaa.repositorio.GastoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GastoServicio  implements IGastoServicio{
     @Autowired
@@ -25,4 +27,10 @@ public class GastoServicio  implements IGastoServicio{
         return null;
         //gastoRepositorio.deleteById(gasto.getIdGasto());
     }
+
+    @Override
+    public List<Gasto> findAll() {
+        return gastoRepositorio.findAll();
+    }
+
 }
