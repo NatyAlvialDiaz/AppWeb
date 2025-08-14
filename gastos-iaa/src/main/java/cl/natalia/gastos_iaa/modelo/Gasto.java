@@ -18,38 +18,43 @@ public class Gasto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idGasto;
-    private String nombre;
-    private String rut;
-    private Integer numRendicion;
     private LocalDate fecha;
+    private String numBoleta;
     private Integer monto;
-    private String dascripcion;
+    private Integer idRendicion;
+    private Integer idTipoDocumento;
+    private Integer idCategoriaGasto;
+    private boolean aprobado;
 
     public Integer getIdGasto() {
         return idGasto;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getRut() {
-        return rut;
-    }
-
-    public Integer getNumRendicion() {
-        return numRendicion;
     }
 
     public LocalDate getFecha() {
         return fecha;
     }
 
+    public String getNum_boleta() {
+        return numBoleta;
+    }
+
     public Integer getMonto() {
         return monto;
     }
 
-    public String getDascripcion() {
-        return dascripcion;
+    public Integer getIdRendicion() {
+        return idRendicion;
+    }
+
+    public Integer getIdTipoDocumento() {
+        return idTipoDocumento;
+    }
+
+    public Integer getIdCategoriaGasto() {
+        return idCategoriaGasto;
+    }
+
+    public boolean isAprobado() {
+        return aprobado;
     }
 }
